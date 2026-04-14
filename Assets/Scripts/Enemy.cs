@@ -34,14 +34,14 @@ public class Enemy : MonoBehaviour
             timer = 0f;
             return;
         }
-         timer += Time.deltaTime;
+        timer += Time.deltaTime;
 
         if (timer >= hitInterval)
         {
             hp -= damagePerHit;
             timer -= hitInterval;
 
-            if (hp <= 0f)
+            if (hp <= 0)
             {
                 Destroy(gameObject);
             }
@@ -49,9 +49,11 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (other.CompareTag("Player"))
         {
             gettingAttacked = true;
+            Debug.Log("Entered by rsaus" + other);
         }
     }
     private void OnTriggerExit2D(Collider2D other)

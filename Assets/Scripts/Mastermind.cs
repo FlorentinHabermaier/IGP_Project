@@ -10,7 +10,7 @@ public class Mastermind : MonoBehaviour
 
     private void Start()
 {
-    hitspeed = 1f;
+    hitspeed = 5f;
     hitdmg = 1f;
 }
     public float getHitSpeed()
