@@ -256,6 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e00609090ff4f759b95af92fe1a69f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mastermind
+  spawnspeed: 0
 --- !u!1 &160793170
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +597,8 @@ MonoBehaviour:
   - {fileID: 135977046}
   enemyPrefabs:
   - {fileID: 1282651955755660958, guid: 8934777ac0af44292a54e41f630b30ac, type: 3}
+  - {fileID: 1282651955755660958, guid: 4cfd332e94af84743be7f58f9f3054f7, type: 3}
+  - {fileID: 1282651955755660958, guid: ab8da70f7fd97483c83318601de0f47a, type: 3}
 --- !u!4 &887305130
 Transform:
   m_ObjectHideFlags: 0

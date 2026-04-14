@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2877594456558142338}
   - component: {fileID: 1940171281404801567}
   m_Layer: 0
-  m_Name: Enemy2
-  m_TagString: Enemy2
+  m_Name: Enemy3
+  m_TagString: Enemy3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   tower: {fileID: 0}
-  moveSpeed: 0.5
-  hp: 50
+  moveSpeed: 0.2
+  hp: 100
   hitInterval: 0
   damagePerHit: 0
 --- !u!212 &-8980795976446965580
@@ -102,7 +102,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0.90058327, a: 1}
+  m_Color: {r: 0.15125823, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
