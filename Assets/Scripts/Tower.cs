@@ -28,6 +28,21 @@ public class Tower : MonoBehaviour
             TakeDMG(100);
             Destroy(other.gameObject);
         }
+        else if (other.CompareTag("Enemy3"))
+        {
+            TakeDMG(100);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("Enemy4"))
+        {
+            TakeDMG(100);
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("Enemy5"))
+        {
+            TakeDMG(100);
+            Destroy(other.gameObject);
+        }
     }
     public void TakeDMG(float DMG)
     {

@@ -6,30 +6,41 @@ public class Mastermind : MonoBehaviour
     public static Mastermind instance;
    
    private float time;
+   private float spawnspeedtime;
    private int stageCount = 0;
     private float hitspeed;
     private float hitdmg;
-    private float spawnspeed;
+    private EnemySpawner spawner;
+    [SerializeField]private float spawnspeed;
 
+    private void Start()
+    {
+        spawner = FindFirstObjectByType<EnemySpawner>();
+         hitspeed = 5f;
+    hitdmg = 5f;
+    spawnspeed = .1f;
+    }
     private void Update()
     {
         time += Time.deltaTime;
+        spawnspeedtime += Time.deltaTime;
+        if(spawnspeedtime > 10)
+        {
+            spawnspeed += .1f;
+            spawnspeedtime = 0;
+        }
         if(time > 60)
         {
             time = 0;
             stageCount ++;
+            spawner.SpawnBoss();
         }
-        if(stageCount == 4)
+        if(stageCount == 5)
         {
             Victory();
         }
     }
-    private void Start()
-{
-    hitspeed = 5f;
-    hitdmg = 5f;
-    spawnspeed = 1;
-}
+  
 public int getStageCount()
     {
         return stageCount;
@@ -66,5 +77,6 @@ public float getSpawnSpeed()
     public void Victory()
     {
         Debug.Log("Victory");
+        Time.timeScale = 0f;
     }
 }

@@ -22,14 +22,27 @@ public class EnemySpawner : MonoBehaviour
         {
             var x = Random.Range(0, spawnpoints.Length);
             spawn = spawnpoints[x];
-            if(stage > enemyPrefabs.Length)
+            /*if(stage > enemyPrefabs.Length)
             {
                 stage = enemyPrefabs.Length;
-            }
-            enemy = enemyPrefabs[stage];
+            }*/
+            enemy = enemyPrefabs[0];
             Instantiate(enemy, spawn.transform);
 
             timer = 0;
         }
+    }
+    public void SpawnBoss()
+    {
+       int count = Mastermind.instance.getStageCount();
+       if(count > enemyPrefabs.Length)
+        {
+            count = enemyPrefabs.Length;
+        }
+        var x = Random.Range(0, spawnpoints.Length);
+            spawn = spawnpoints[x];
+            enemy = enemyPrefabs[count];
+            Instantiate(enemy, spawn.transform);
+
     }
 }
