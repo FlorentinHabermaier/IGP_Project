@@ -1,10 +1,13 @@
 using UnityEngine;
+using TMPro;
 
 public class Tower : MonoBehaviour
 {
     [SerializeField] private float TowerHP = 100;
+    [SerializeField] private TextMeshProUGUI HPtext;
     void Start()
     {
+        HPtext.text = TowerHP.ToString();
     }
 
     // Update is called once per frame
@@ -47,6 +50,7 @@ public class Tower : MonoBehaviour
     public void TakeDMG(float DMG)
     {
         TowerHP -= DMG;
+        HPtext.text = TowerHP.ToString();
         Debug.Log(TowerHP);
         if(TowerHP <= 0)
         {

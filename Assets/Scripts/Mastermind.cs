@@ -1,5 +1,8 @@
 using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mastermind : MonoBehaviour
 {
@@ -10,6 +13,9 @@ public class Mastermind : MonoBehaviour
    private int stageCount = 0;
     private float hitspeed;
     private float hitdmg;
+    [SerializeField]private TextMeshProUGUI bosstext;
+    [SerializeField]private TextMeshProUGUI timeText;
+    private float timeTextTimer;
     private EnemySpawner spawner;
     [SerializeField]private float spawnspeed;
 
@@ -17,11 +23,19 @@ public class Mastermind : MonoBehaviour
     {
         spawner = FindFirstObjectByType<EnemySpawner>();
          hitspeed = 5f;
-    hitdmg = 5f;
-    spawnspeed = .1f;
+        hitdmg = 5f;
+        spawnspeed = .1f;
+        bosstext.text = "";
     }
     private void Update()
     {
+        timeTextTimer += Time.deltaTime;
+
+        int minutes = Mathf.FloorToInt(timeTextTimer / 60f);
+        int seconds = Mathf.FloorToInt(timeTextTimer % 60f);
+
+        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
         time += Time.deltaTime;
         spawnspeedtime += Time.deltaTime;
         if(spawnspeedtime > 10)
@@ -29,15 +43,17 @@ public class Mastermind : MonoBehaviour
             spawnspeed += .1f;
             spawnspeedtime = 0;
         }
-        if(time > 60)
+        if(time > 10)
         {
             time = 0;
             stageCount ++;
-            spawner.SpawnBoss();
-        }
-        if(stageCount == 5)
+            if(stageCount == 5)
         {
             Victory();
+        }
+            bosstext.text = "Boss spawnt";
+            spawner.SpawnBoss();
+            StartCoroutine(Hide());
         }
     }
   
@@ -78,5 +94,11 @@ public float getSpawnSpeed()
     {
         Debug.Log("Victory");
         Time.timeScale = 0f;
+    }
+
+    IEnumerator Hide()
+    {
+        yield return new WaitForSeconds(5);
+        bosstext.enabled = false;
     }
 }

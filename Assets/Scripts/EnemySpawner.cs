@@ -35,9 +35,9 @@ public class EnemySpawner : MonoBehaviour
     public void SpawnBoss()
     {
        int count = Mastermind.instance.getStageCount();
-       if(count > enemyPrefabs.Length)
+       if(count > enemyPrefabs.Length -1)
         {
-            count = enemyPrefabs.Length;
+            count = enemyPrefabs.Length -1;
         }
         var x = Random.Range(0, spawnpoints.Length);
             spawn = spawnpoints[x];
