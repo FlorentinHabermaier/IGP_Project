@@ -3,7 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    [SerializeField] private Transform tower;
+    [SerializeField] private Tower tower;
 
     //unterschied zwischen Types
     [SerializeField] private float moveSpeed = 3f;
@@ -13,11 +13,16 @@ public class Enemy : MonoBehaviour
     private float timer = 0f;
 
     //muss man mit getter vom player holen
-    [SerializeField]private float hitInterval;
-    [SerializeField]private float damagePerHit;
+    [SerializeField]private float hitInterval = 10;
+    [SerializeField]private float damagePerHit = 5;
 
+    private void Awake()
+    {
+        tower = FindFirstObjectByType<Tower>();
+    }
     private void Update()
     {
+        
         if (tower == null)
         {
             Debug.Log("no tower");
@@ -26,7 +31,7 @@ public class Enemy : MonoBehaviour
         hitInterval = 1 / Mastermind.instance.getHitSpeed();
         damagePerHit = Mastermind.instance.getHitDmg();
 
-        Vector3 direction = (tower.position - transform.position).normalized;
+        Vector3 direction = (tower.transform.position - transform.position).normalized;
         transform.position += direction * moveSpeed * Time.deltaTime;
 
         if (!gettingAttacked)
@@ -50,15 +55,14 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("AttackRadius"))
         {
             gettingAttacked = true;
-            Debug.Log("Entered by rsaus" + other);
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("AttackRadius"))
         {
             gettingAttacked = false;
         }
