@@ -1,10 +1,34 @@
+using System;
 using UnityEngine;
 
 public class Mastermind : MonoBehaviour
 {
     public static Mastermind instance;
    
+    private float hitspeed;
+    private float hitdmg;
 
+    private void Start()
+{
+    hitspeed = 1f;
+    hitdmg = 1f;
+}
+    public float getHitSpeed()
+    {
+        return hitspeed;
+    }
+    public float getHitDmg()
+    {
+        return hitdmg;
+    }
+    public void setHitSpeed(float speed)
+    {
+        hitspeed = speed;
+    }
+    public void setHitDmg(float dmg)
+    {
+        hitdmg = dmg;
+    }
     private void Awake()
     {
         instance = this;
