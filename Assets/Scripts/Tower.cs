@@ -12,7 +12,7 @@ public class Tower : MonoBehaviour
     {
         
     }
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -32,6 +32,7 @@ public class Tower : MonoBehaviour
     public void TakeDMG(float DMG)
     {
         TowerHP -= DMG;
+        Debug.Log(TowerHP);
         if(TowerHP <= 0)
         {
             Mastermind.instance.GameOver();
