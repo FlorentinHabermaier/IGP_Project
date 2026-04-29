@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     //muss man mit getter vom player holen
     [SerializeField]private float hitInterval = 10;
     [SerializeField]private float damagePerHit = 5;
+    private bool isDead;
 
     private void Awake()
     {
@@ -43,15 +44,31 @@ public class Enemy : MonoBehaviour
 
         if (timer >= hitInterval)
         {
-            hp -= damagePerHit;
             timer -= hitInterval;
-
-            if (hp <= 0)
-            {
-                Destroy(gameObject);
-            }
+            TakeDamage(damagePerHit);
         }
     }
+
+    public void TakeDamage(float damage)
+    {
+        if (isDead)
+        {
+            return;
+        }
+
+        hp -= damage;
+        if (hp <= 0)
+        {
+            isDead = true;
+            Mastermind.instance.GoldGained(1);
+            if (Mastermind.instance.getLifesteal())
+            {
+                Mastermind.instance.healing();
+            }
+            Destroy(gameObject);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         

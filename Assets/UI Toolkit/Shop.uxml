@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ui="UnityEngine.UIElements"
+    xmlns:uie="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
+>
+    <ui:Style src="BattleShop.uss" />
+
+    <ui:VisualElement name="root" class="root">
+
+        <ui:VisualElement name="battle-shop-panel" class="shop-panel">
+
+            <ui:VisualElement name="shop-header" class="shop-header">
+                <ui:Label name="gold-label" text="Gold: 0" class="gold-label" />
+                <ui:Label name="shop-title" text="BattleShop" class="shop-title" />
+                <ui:Button name="close-shop-button" text="X" class="close-button" />
+            </ui:VisualElement>
+
+            <ui:Label
+                name="shop-subtitle"
+                text="Choose an upgrade for your next battle"
+                class="shop-subtitle"
+            />
+
+            <ui:ScrollView
+                name="upgrade-scroll"
+                mode="Vertical"
+                vertical-scroller-visibility="Hidden"
+                horizontal-scroller-visibility="Hidden"
+                class="upgrade-scroll"
+            >
+                <ui:VisualElement name="upgrade-container" class="upgrade-container">
+
+                    <ui:VisualElement name="towerhp-card" class="upgrade-card">
+                        <ui:Label text="TowerHP" class="upgrade-name" />
+                        <ui:Label text="More life for the tower" class="upgrade-description" />
+                        <ui:VisualElement name="towerhp-icon" class="upgrade-icon" />
+                        <ui:Label name="towerhp-price-label" text="100" class="upgrade-price" />
+                        <ui:Button name="buy-towerhp-button" text="Buy" class="buy-button" />
+                    </ui:VisualElement>
+
+                    <ui:VisualElement name="hitspeed-card" class="upgrade-card">
+                        <ui:Label text="HitSpeed" class="upgrade-name" />
+                        <ui:Label text="Attack faster" class="upgrade-description" />
+                        <ui:VisualElement name="hitspeed-icon" class="upgrade-icon" />
+                        <ui:Label name="hitspeed-price-label" text="100" class="upgrade-price" />
+                        <ui:Button name="buy-hitspeed-button" text="Buy" class="buy-button" />
+                    </ui:VisualElement>
+
+                    <ui:VisualElement name="hitdmg-card" class="upgrade-card">
+                        <ui:Label text="HitDMG" class="upgrade-name" />
+                        <ui:Label text="Stronger hits" class="upgrade-description" />
+                        <ui:VisualElement name="hitdmg-icon" class="upgrade-icon" />
+                        <ui:Label name="hitdmg-price-label" text="100" class="upgrade-price" />
+                        <ui:Button name="buy-hitdmg-button" text="Buy" class="buy-button" />
+                    </ui:VisualElement>
+
+                    <ui:VisualElement name="spikes-card" class="upgrade-card">
+                        <ui:Label name="spikes-name-label" text="Spikes" class="upgrade-name" />
+                        <ui:Label name="spikes-description-label" text="Damage enemies on contact" class="upgrade-description" />
+                        <ui:VisualElement name="spikes-icon" class="upgrade-icon" />
+                        <ui:Label name="spikes-price-label" text="100" class="upgrade-price" />
+                        <ui:Button name="buy-spikes-button" text="Buy" class="buy-button" />
+                    </ui:VisualElement>
+
+                    <ui:VisualElement name="lifesteal-card" class="upgrade-card">
+                        <ui:Label text="Lifesteal" class="upgrade-name" />
+                        <ui:Label text="Heal from your attacks" class="upgrade-description" />
+                        <ui:VisualElement name="lifesteal-icon" class="upgrade-icon" />
+                        <ui:Label name="lifesteal-price-label" text="100" class="upgrade-price" />
+                        <ui:Button name="buy-lifesteal-button" text="Buy" class="buy-button" />
+                    </ui:VisualElement>
+
+                </ui:VisualElement>
+            </ui:ScrollView>
+
+        </ui:VisualElement>
+
+    </ui:VisualElement>
+</ui:UXML>
