@@ -47,5 +47,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 1820235293
+    locked: 0
+  - name: Decorations
+    uniqueID: 3282744005
+    locked: 0
+  - name: Tower
+    uniqueID: 2162800025
+    locked: 0
+  - name: Player
+    uniqueID: 626837139
+    locked: 0
+  - name: Enemy
+    uniqueID: 1141398905
+    locked: 0
   m_RenderingLayers:
   - Default
