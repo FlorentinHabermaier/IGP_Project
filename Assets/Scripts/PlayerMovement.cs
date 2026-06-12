@@ -84,4 +84,10 @@ public class PlayerMovement : MonoBehaviour
     {
         _movementInput = inputValue.Get<Vector2>();
     }
+
+    // Arduino-Input
+    public void SetMovementInput(Vector2 input)
+    {
+        _movementInput = input;
+    }
 }
