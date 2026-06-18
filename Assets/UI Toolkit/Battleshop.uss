@@ -2,7 +2,19 @@
     flex-grow: 1;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0.70);
+}
+
+/* Jersey 10 pixel font */
+.shop-title,
+.shop-subtitle,
+.upgrade-name,
+.upgrade-description,
+.upgrade-price,
+.buy-button,
+.gold-label,
+.close-button {
+    -unity-font-definition: url("/Assets/Fonts/Jersey10-Regular.ttf");
 }
 
 .shop-panel {
@@ -12,11 +24,9 @@
     max-height: 700px;
     min-width: 720px;
     min-height: 420px;
-    background-color: rgba(24, 24, 34, 0.96);
-    border-top-left-radius: 22px;
-    border-top-right-radius: 22px;
-    border-bottom-left-radius: 22px;
-    border-bottom-right-radius: 22px;
+    background-color: rgb(74, 55, 38);
+    border-width: 4px;
+    border-color: rgb(160, 120, 70);
     padding-top: 24px;
     padding-bottom: 24px;
     padding-left: 28px;
@@ -28,20 +38,33 @@
 .shop-header {
     width: 100%;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 6px;
+    justify-content: center;
+    margin-bottom: 12px;
 }
 
-.shop-header-spacer {
-    width: 42px;
+.shop-header-side {
+    width: 140px;
     height: 42px;
+    flex-shrink: 0;
+}
+
+.shop-header-left {
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.shop-header-right {
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .shop-title {
-    font-size: 34px;
+    font-size: 60px;
+    flex-grow: 1;
+    unity-text-align: middle-center;
     -unity-font-style: bold;
-    color: rgb(255, 255, 255);
+    color: rgb(255, 235, 180);
     margin-bottom: 8px;
     -unity-text-align: middle-center;
 }
@@ -98,18 +121,16 @@
     padding-bottom: 14px;
     padding-left: 12px;
     padding-right: 12px;
-    background-color: rgb(43, 43, 58);
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+    background-color: rgb(58, 45, 35);
+    border-width: 3px;
+    border-color: rgb(145, 108, 62);
     align-items: center;
     justify-content: space-between;
 }
 
 .upgrade-name {
-    font-size: 18px;
-    -unity-font-style: bold;
+    font-size: 30px;
+    /* -unity-font-style: bold; */
     color: white;
     -unity-text-align: middle-center;
 }
@@ -122,9 +143,9 @@
 }
 
 .upgrade-icon {
-    width: 68px;
-    height: 68px;
-    background-color: rgb(115, 115, 135);
+    width: 96px;
+    height: 96px;
+    background-color: rgb(120, 105, 85);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -132,9 +153,9 @@
 }
 
 .upgrade-price {
-    font-size: 18px;
+    font-size: 24px;
     -unity-font-style: bold;
-    color: rgb(255, 215, 120);
+    color: rgb(255, 215, 80);
 }
 
 .buy-button {
@@ -142,16 +163,14 @@
     height: 38px;
     font-size: 15px;
     -unity-font-style: bold;
-    background-color: rgb(75, 115, 220);
-    color: white;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    background-color: rgb(110, 70, 50);
+    color: rgb(255, 240, 180);
+    border-width: 2px;
+    border-color: rgb(210, 170, 100);
 }
 
 .buy-button:hover {
-    background-color: rgb(95, 135, 240);
+    background-color: rgb(140, 90, 60);
 }
 
 .buy-button-disabled {
@@ -162,36 +181,18 @@
 .buy-button-disabled:hover {
     background-color: rgb(170, 60, 60);
 }
-.shop-header {
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 6px;
-}
 
 .gold-label {
-    min-width: 120px;
+    min-width: 140px;
     height: 42px;
-    font-size: 18px;
-    -unity-font-style: bold;
-    color: rgb(255, 220, 120);
-    background-color: rgb(43, 43, 58);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    font-size: 22px;
+    color: rgb(255, 215, 80);
+    background-color: rgb(80, 60, 40);
+    border-width: 2px;
+    border-color: rgb(180, 140, 70);
     padding-left: 12px;
     padding-right: 12px;
     padding-top: 10px;
     padding-bottom: 10px;
     -unity-text-align: middle-left;
-}
-.buy-button-disabled {
-    background-color: rgb(170, 60, 60);
-    color: rgb(255, 235, 235);
-}
-
-.buy-button-disabled:hover {
-    background-color: rgb(170, 60, 60);
 }

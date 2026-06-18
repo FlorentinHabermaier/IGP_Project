@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField]private float hp = 10;
 
+    private SpriteRenderer spriteRenderer;
     private bool gettingAttacked;
     private float timer = 0f;
 
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         tower = FindFirstObjectByType<Tower>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void Update()
     {
@@ -33,6 +35,10 @@ public class Enemy : MonoBehaviour
         damagePerHit = Mastermind.instance.getHitDmg();
 
         Vector3 direction = (tower.transform.position - transform.position).normalized;
+
+        // Sprite nach links spiegeln wenn der Turm links ist
+        spriteRenderer.flipX = direction.x < 0;
+
         transform.position += direction * moveSpeed * Time.deltaTime;
 
         if (!gettingAttacked)

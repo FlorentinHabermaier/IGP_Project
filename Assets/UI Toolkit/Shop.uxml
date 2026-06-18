@@ -12,9 +12,13 @@
         <ui:VisualElement name="battle-shop-panel" class="shop-panel">
 
             <ui:VisualElement name="shop-header" class="shop-header">
-                <ui:Label name="gold-label" text="Gold: 0" class="gold-label" />
+                <ui:VisualElement name="shop-header-left" class="shop-header-side shop-header-left">
+                    <ui:Label name="gold-label" text="Gold: 0" class="gold-label" />
+                </ui:VisualElement>
                 <ui:Label name="shop-title" text="BattleShop" class="shop-title" />
-                <ui:Button name="close-shop-button" text="X" class="close-button" />
+                <ui:VisualElement name="shop-header-right" class="shop-header-side shop-header-right">
+                    <ui:Button name="close-shop-button" text="X" class="close-button" />
+                </ui:VisualElement>
             </ui:VisualElement>
 
             <ui:Label
