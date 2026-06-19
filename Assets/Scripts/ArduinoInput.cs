@@ -9,9 +9,13 @@ public class ArduinoInput : MonoBehaviour
     private SerialPort serialPort;
     private PlayerMovement playerMovement;
 
+    private ShopManager shopManager;
+    private bool buttonWasPressed = false;
+
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        shopManager = FindFirstObjectByType<ShopManager>();
 
         serialPort = new SerialPort(portName, baudRate);
         serialPort.ReadTimeout = 50;
@@ -35,6 +39,26 @@ public class ArduinoInput : MonoBehaviour
         {
             string input = serialPort.ReadLine().Trim();
 
+            // NEU: Button öffnet/schließt den Shop nur einmal pro Klick.
+            if (input == "BTN")
+            {
+                if (!buttonWasPressed)
+                {
+                    if (shopManager != null)
+                    {
+                        shopManager.ToggleShop();
+                    }
+
+                    buttonWasPressed = true;
+                }
+
+                return;
+            }
+            else
+            {
+                buttonWasPressed = false;
+            }
+
             Vector2 movement = Vector2.zero;
 
             if (input == "UP") movement = Vector2.up;
@@ -48,7 +72,6 @@ public class ArduinoInput : MonoBehaviour
 
             playerMovement.SetMovementInput(movement);
         }
-        
         catch
         {
             // nix

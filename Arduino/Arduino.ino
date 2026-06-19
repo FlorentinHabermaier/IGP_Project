@@ -1,6 +1,6 @@
 const int xPin = A0;
 const int yPin = A1;
-const int joystickButtonPin = 2;
+const int buttonPin = 7;
 
 const int ledPins[5] = {8, 9, 10, 11, 12};
 
@@ -8,7 +8,7 @@ void setup()
 {
   Serial.begin(9600);
 
-  pinMode(joystickButtonPin, INPUT_PULLUP);
+  pinMode(buttonPin, INPUT_PULLUP);
 
   for (int i = 0; i < 5; i++)
   {
@@ -29,7 +29,7 @@ void sendJoystickInput()
 {
   int x = analogRead(xPin);
   int y = analogRead(yPin);
-  bool buttonPressed = !digitalRead(joystickButtonPin);
+  bool buttonPressed = !digitalRead(buttonPin);
 
   bool up = x < 200;
   bool down = x > 800;
@@ -69,13 +69,6 @@ void setLedCount(int count)
 
   for (int i = 0; i < 5; i++)
   {
-    if (i < count)
-    {
-      digitalWrite(ledPins[i], HIGH);
-    }
-    else
-    {
-      digitalWrite(ledPins[i], LOW);
-    }
+    digitalWrite(ledPins[i], i < count ? HIGH : LOW);
   }
 }

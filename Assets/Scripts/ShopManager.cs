@@ -66,6 +66,18 @@ public class ShopManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void ToggleShop()
+    {
+        if (root.style.display == DisplayStyle.None)
+        {
+            OpenShop();
+        }
+        else
+        {
+            CloseShop();
+        }
+    }
+
     private void RefreshShop()
     {
         if (Mastermind.instance == null)
