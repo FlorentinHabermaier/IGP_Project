@@ -267,6 +267,7 @@ MonoBehaviour:
   - {fileID: 1980421072392352797, guid: 3882d2febb8dd42198f1d53c87a3e2b7, type: 3}
   - {fileID: 3256357734721483219, guid: 6d2ed1c2b7093423baa815098e40cf61, type: 3}
   - {fileID: 6226787608507733620, guid: aa7c2b48c6a0a4fd7a5a67b224427157, type: 3}
+  arduinoInput: {fileID: 0}
 --- !u!1 &160793170
 GameObject:
   m_ObjectHideFlags: 0
@@ -5782,7 +5783,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467764458}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9faf771a8ca60104a8966823ed92cc23, type: 3}
   m_Name: 

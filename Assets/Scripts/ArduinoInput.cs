@@ -41,20 +41,43 @@ public class ArduinoInput : MonoBehaviour
             else if (input == "DOWN") movement = Vector2.down;
             else if (input == "LEFT") movement = Vector2.left;
             else if (input == "RIGHT") movement = Vector2.right;
+            else if (input == "UP_LEFT") movement = new Vector2(-1, 1).normalized;
+            else if (input == "UP_RIGHT") movement = new Vector2(1, 1).normalized;
+            else if (input == "DOWN_LEFT") movement = new Vector2(-1, -1).normalized;
+            else if (input == "DOWN_RIGHT") movement = new Vector2(1, -1).normalized;
 
             playerMovement.SetMovementInput(movement);
         }
+        
         catch
         {
             // nix
         }
     }
 
-    void OnApplicationQuit()
+        void OnApplicationQuit()
     {
         if (serialPort != null && serialPort.IsOpen)
         {
+            serialPort.WriteLine("LED:0"); // NEU: LEDs beim Stoppen ausschalten
             serialPort.Close();
         }
+    }
+
+        void OnDisable()
+    {
+        if (serialPort != null && serialPort.IsOpen)
+        {
+            serialPort.WriteLine("LED:0");
+        }
+    }
+
+    public void SendLedCount(int count)
+    {
+        if (serialPort == null || !serialPort.IsOpen)
+            return;
+
+        count = Mathf.Clamp(count, 0, 5);
+        serialPort.WriteLine("LED:" + count);
     }
 }

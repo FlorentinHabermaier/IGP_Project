@@ -17,6 +17,7 @@ public class Mastermind : MonoBehaviour
 
     private float TowerHP;
     private float MaxTowerHP;
+
     [SerializeField]private TextMeshProUGUI bosstext;
     [SerializeField]private TextMeshProUGUI timeText;
     [SerializeField]private TextMeshProUGUI HPText;
@@ -37,6 +38,8 @@ public class Mastermind : MonoBehaviour
     [SerializeField] private GameObject[] rankenPrefabs;
     private GameObject[] activeRanken;
 
+    [SerializeField] private ArduinoInput arduinoInput;
+
     private void Start()
     {
         TowerHP = 100f;
@@ -50,6 +53,8 @@ public class Mastermind : MonoBehaviour
         HPText.text = TowerHP.ToString();
         DmgText.text = "DPS: " + hitdmg * hitspeed;
         GoldText.text = Gold.ToString();
+
+        UpdateLedProgress();
     }
     private void Update()
     {
@@ -73,6 +78,7 @@ public class Mastermind : MonoBehaviour
         {
             time = 0;
             stageCount ++;
+            UpdateLedProgress();
             if(stageCount == 6)
         {
             Victory();
@@ -271,5 +277,19 @@ public float getSpawnSpeed()
         }
         TowerHP = Mathf.Min(TowerHP + 1, MaxTowerHP);
         HPText.text = TowerHP.ToString();
+    }
+
+    // für arduino
+    private void UpdateLedProgress()
+    {
+        if (arduinoInput == null)
+        {
+            arduinoInput = FindFirstObjectByType<ArduinoInput>();
+        }
+
+        if (arduinoInput == null)
+            return;
+
+        arduinoInput.SendLedCount(stageCount);
     }
 }
