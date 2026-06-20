@@ -12,6 +12,9 @@ public class ArduinoInput : MonoBehaviour
     private ShopManager shopManager;
     private bool buttonWasPressed = false;
 
+    private float lastShopMoveTime = 0f;
+    private float shopMoveCooldown = 0.25f;
+
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -39,17 +42,23 @@ public class ArduinoInput : MonoBehaviour
         {
             string input = serialPort.ReadLine().Trim();
 
-            // NEU: Button öffnet/schließt den Shop nur einmal pro Klick.
             if (input == "BTN")
             {
                 if (!buttonWasPressed)
                 {
+                    buttonWasPressed = true;
+
                     if (shopManager != null)
                     {
-                        shopManager.ToggleShop();
+                        if (shopManager.IsOpen())
+                        {
+                            shopManager.BuySelected();
+                        }
+                        else
+                        {
+                            shopManager.OpenShop();
+                        }
                     }
-
-                    buttonWasPressed = true;
                 }
 
                 return;
@@ -59,6 +68,27 @@ public class ArduinoInput : MonoBehaviour
                 buttonWasPressed = false;
             }
 
+            if (shopManager != null && shopManager.IsOpen())
+            {
+                if (Time.unscaledTime - lastShopMoveTime > shopMoveCooldown)
+                {
+                    if (input == "RIGHT" || input == "DOWN")
+                    {
+                        shopManager.SelectNext();
+                        lastShopMoveTime = Time.unscaledTime;
+                    }
+                    else if (input == "LEFT" || input == "UP")
+                    {
+                        shopManager.SelectPrevious();
+                        lastShopMoveTime = Time.unscaledTime;
+                    }
+                }
+
+                playerMovement.SetMovementInput(Vector2.zero);
+                return;
+            }
+
+            // Normale Player-Bewegung
             Vector2 movement = Vector2.zero;
 
             if (input == "UP") movement = Vector2.up;
@@ -82,7 +112,7 @@ public class ArduinoInput : MonoBehaviour
     {
         if (serialPort != null && serialPort.IsOpen)
         {
-            serialPort.WriteLine("LED:0"); // NEU: LEDs beim Stoppen ausschalten
+            serialPort.WriteLine("LED:0"); 
             serialPort.Close();
         }
     }

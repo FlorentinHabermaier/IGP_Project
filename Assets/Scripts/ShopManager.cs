@@ -12,6 +12,9 @@ public class ShopManager : MonoBehaviour
     private Button buySpikesButton;
     private Button buyLifestealButton;
     private Button closeShopButton;
+    private Button[] shopButtons;
+    private int selectedIndex = 0;
+    private ScrollView shopScrollView;
 
     private Label towerHpPriceLabel;
     private Label hitSpeedPriceLabel;
@@ -25,6 +28,7 @@ public class ShopManager : MonoBehaviour
     private void Start()
     {
         root = shopUI.rootVisualElement;
+        shopScrollView = root.Q<ScrollView>();
         root.style.display = DisplayStyle.None;
 
         buyTowerHpButton = root.Q<Button>("buy-towerhp-button");
@@ -50,6 +54,16 @@ public class ShopManager : MonoBehaviour
         buyLifestealButton.clicked += BuyLifesteal;
         closeShopButton.clicked += CloseShop;
 
+        shopButtons = new Button[]
+        {
+            buyTowerHpButton,
+            buyHitSpeedButton,
+            buyHitDmgButton,
+            buySpikesButton,
+            buyLifestealButton,
+            closeShopButton
+        };
+
         RefreshShop();
     }
 
@@ -58,6 +72,9 @@ public class ShopManager : MonoBehaviour
         root.style.display = DisplayStyle.Flex;
         Time.timeScale = 0f;
         RefreshShop();
+
+        selectedIndex = 0;
+        UpdateSelectionVisual();
     }
 
     public void CloseShop()
@@ -191,5 +208,69 @@ public class ShopManager : MonoBehaviour
         Mastermind.instance.setGold(Mastermind.instance.getGold() - cost);
         Mastermind.instance.UnlockLifesteal();
         RefreshShop();
+    }
+
+    public bool IsOpen()
+    {
+        return root.style.display != DisplayStyle.None;
+    }
+
+    public void SelectNext()
+    {
+        selectedIndex++;
+        if (selectedIndex >= shopButtons.Length)
+            selectedIndex = 0;
+
+        UpdateSelectionVisual();
+    }
+
+    public void SelectPrevious()
+    {
+        selectedIndex--;
+        if (selectedIndex < 0)
+            selectedIndex = shopButtons.Length - 1;
+
+        UpdateSelectionVisual();
+    }
+
+    public void BuySelected()
+    {
+        if (selectedIndex == 0) BuyTowerHP();
+        else if (selectedIndex == 1) BuyHitSpeed();
+        else if (selectedIndex == 2) BuyHitDmg();
+        else if (selectedIndex == 3) BuySpikes();
+        else if (selectedIndex == 4) BuyLifesteal();
+        else if (selectedIndex == 5)
+        {
+            CloseShop();
+            return;
+        }
+
+        UpdateSelectionVisual();
+    }
+
+    private void UpdateSelectionVisual()
+    {
+        if (shopButtons == null) return;
+
+        for (int i = 0; i < shopButtons.Length; i++)
+        {
+            shopButtons[i].style.borderTopWidth = i == selectedIndex ? 4 : 0;
+            shopButtons[i].style.borderBottomWidth = i == selectedIndex ? 4 : 0;
+            shopButtons[i].style.borderLeftWidth = i == selectedIndex ? 4 : 0;
+            shopButtons[i].style.borderRightWidth = i == selectedIndex ? 4 : 0;
+
+            shopButtons[i].style.borderTopColor = Color.yellow;
+            shopButtons[i].style.borderBottomColor = Color.yellow;
+            shopButtons[i].style.borderLeftColor = Color.yellow;
+            shopButtons[i].style.borderRightColor = Color.yellow;
+        }
+
+        shopButtons[selectedIndex].Focus();
+
+        if (shopScrollView != null)
+        {
+            shopScrollView.ScrollTo(shopButtons[selectedIndex]);
+        }
     }
 }
