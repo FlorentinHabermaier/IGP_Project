@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private float _cameraEdgePadding = 0f;
+
     private float _speed = 5f;
 
     private Rigidbody2D _rigidbody;
@@ -17,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 _movementInput;
     private float camHeight, camWidth;
-    private Vector2 _playerExtends;
 
     private void Awake()
     {
@@ -34,18 +35,14 @@ public class PlayerMovement : MonoBehaviour
     {
         camHeight = Camera.main.orthographicSize;
         camWidth = camHeight * Camera.main.aspect;
-
-        // GEÄNDERT: Vorher war hier GetComponent<SpriteRenderer>().
-        // Jetzt nutzen wir die gespeicherte Variable _spriteRenderer.
-        _playerExtends = _spriteRenderer.bounds.extents;
     }
 
     private void FixedUpdate()
     {
         Vector2 newPos = _rigidbody.position + _movementInput * _speed * Time.fixedDeltaTime;
 
-        newPos.x = Mathf.Clamp(newPos.x, -camWidth + _playerExtends.x, camWidth - _playerExtends.x);
-        newPos.y = Mathf.Clamp(newPos.y, -camHeight + _playerExtends.y, camHeight - _playerExtends.y);
+        newPos.x = Mathf.Clamp(newPos.x, -camWidth + _cameraEdgePadding, camWidth - _cameraEdgePadding);
+        newPos.y = Mathf.Clamp(newPos.y, -camHeight + _cameraEdgePadding, camHeight - _cameraEdgePadding);
 
         _rigidbody.MovePosition(newPos);
     }
@@ -89,5 +86,11 @@ public class PlayerMovement : MonoBehaviour
     public void SetMovementInput(Vector2 input)
     {
         _movementInput = input;
+    }
+
+    // Hook for future attack animations. attackSpeed is passed in so the
+    // animation can later be played faster or slower per hit.
+    public void Attack(float attackSpeed)
+    {
     }
 }

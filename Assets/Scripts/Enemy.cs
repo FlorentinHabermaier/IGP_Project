@@ -10,13 +10,12 @@ public class Enemy : MonoBehaviour
     [SerializeField]private float hp = 10;
 
     private SpriteRenderer spriteRenderer;
-    private bool gettingAttacked;
-    private float timer = 0f;
-
-    //muss man mit getter vom player holen
-    [SerializeField]private float hitInterval = 10;
-    [SerializeField]private float damagePerHit = 5;
+    [SerializeField] private int goldReward = 1;
     private bool isDead;
+    private bool isBoss;
+    private int bossNumber;
+    private int bossEnemyIndex;
+    private bool bossHealthApplied;
 
     private void Awake()
     {
@@ -31,8 +30,6 @@ public class Enemy : MonoBehaviour
             Debug.Log("no tower");
              return;
         }
-        hitInterval = 1 / Mastermind.instance.getHitSpeed();
-        damagePerHit = Mastermind.instance.getHitDmg();
 
         Vector3 direction = (tower.transform.position - transform.position).normalized;
 
@@ -40,19 +37,6 @@ public class Enemy : MonoBehaviour
         spriteRenderer.flipX = direction.x < 0;
 
         transform.position += direction * moveSpeed * Time.deltaTime;
-
-        if (!gettingAttacked)
-        {
-            timer = 0f;
-            return;
-        }
-        timer += Time.deltaTime;
-
-        if (timer >= hitInterval)
-        {
-            timer -= hitInterval;
-            TakeDamage(damagePerHit);
-        }
     }
 
     public void TakeDamage(float damage)
@@ -66,7 +50,15 @@ public class Enemy : MonoBehaviour
         if (hp <= 0)
         {
             isDead = true;
-            Mastermind.instance.GoldGained(1);
+            if (goldReward > 0)
+            {
+                GoldPopup.Spawn(transform.position, goldReward, spriteRenderer.sortingLayerID, spriteRenderer.sortingOrder);
+            }
+            if (isBoss)
+            {
+                Mastermind.instance.BossDefeated(bossEnemyIndex);
+            }
+            Mastermind.instance.GoldGained(goldReward);
             if (Mastermind.instance.getLifesteal())
             {
                 Mastermind.instance.healing();
@@ -75,19 +67,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void SetBoss(int number, int enemyIndex, float healthMultiplier)
     {
-        
-        if (other.CompareTag("AttackRadius"))
+        isBoss = true;
+        bossNumber = number;
+        bossEnemyIndex = enemyIndex;
+
+        if (!bossHealthApplied)
         {
-            gettingAttacked = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("AttackRadius"))
-        {
-            gettingAttacked = false;
+            hp *= Mathf.Max(1f, healthMultiplier);
+            bossHealthApplied = true;
         }
     }
 }

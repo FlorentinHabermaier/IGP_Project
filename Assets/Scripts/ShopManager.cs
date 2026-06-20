@@ -56,14 +56,28 @@ public class ShopManager : MonoBehaviour
     public void OpenShop()
     {
         root.style.display = DisplayStyle.Flex;
-        Time.timeScale = 0f;
+        if (Mastermind.instance != null)
+        {
+            Mastermind.instance.NotifyShopOpened();
+        }
+        else
+        {
+            Time.timeScale = 0f;
+        }
         RefreshShop();
     }
 
     public void CloseShop()
     {
         root.style.display = DisplayStyle.None;
-        Time.timeScale = 1f;
+        if (Mastermind.instance != null)
+        {
+            Mastermind.instance.NotifyShopClosed();
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     public void ToggleShop()

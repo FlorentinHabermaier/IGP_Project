@@ -53,6 +53,7 @@ MonoBehaviour:
   hp: 50
   hitInterval: 0
   damagePerHit: 0
+  goldReward: 30
 --- !u!212 &-8980795976446965580
 SpriteRenderer:
   serializedVersion: 2

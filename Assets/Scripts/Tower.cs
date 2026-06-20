@@ -12,27 +12,27 @@ public class Tower : MonoBehaviour
         }
         else if (other.CompareTag("Enemy1"))
         {
-            Mastermind.instance.TakeDamage(10);
+            Mastermind.instance.TakeDamage(5);
             Destroy(other.gameObject);
         }
         else if (other.CompareTag("Enemy2"))
         {
-            Mastermind.instance.TakeDamage(100);
+            Mastermind.instance.TakeDamage(25);
             Destroy(other.gameObject);
         }
         else if (other.CompareTag("Enemy3"))
         {
-            Mastermind.instance.TakeDamage(100);
+            Mastermind.instance.TakeDamage(50);
             Destroy(other.gameObject);
         }
         else if (other.CompareTag("Enemy4"))
         {
-            Mastermind.instance.TakeDamage(100);
+            Mastermind.instance.TakeDamage(80);
             Destroy(other.gameObject);
         }
         else if (other.CompareTag("Enemy5"))
         {
-            Mastermind.instance.TakeDamage(100);
+            Mastermind.instance.TakeDamage(200);
             Destroy(other.gameObject);
         }
     }
