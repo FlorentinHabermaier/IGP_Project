@@ -120,21 +120,17 @@
 }
 
 .close-button {
-    width: 50px;
-    height: 50px;
-    padding-top: 6px;
-    font-size: 24px;
+    width: 80px;
+    height: 44px;
+    padding-top: 4px;
+    font-size: 21px;
     color: rgb(255, 232, 222);
     -unity-font-style: bold;
     -unity-text-align: middle-center;
     background-color: rgba(0, 0, 0, 0);
-    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Red_9Slides.png");
+    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Red_3Slides.png");
     -unity-background-scale-mode: stretch-to-fill;
     -unity-background-image-tint-color: rgb(255, 255, 255);
-    -unity-slice-left: 16;
-    -unity-slice-right: 16;
-    -unity-slice-top: 16;
-    -unity-slice-bottom: 16;
     border-width: 0;
     border-color: rgba(0, 0, 0, 0);
     border-top-width: 0;
@@ -151,14 +147,14 @@
 
 .close-button:hover {
     background-color: rgba(0, 0, 0, 0);
-    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Red_9Slides_Pressed.png");
+    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Red_3Slides_Pressed.png");
     -unity-background-image-tint-color: rgb(255, 255, 255);
     color: rgb(255, 232, 222);
 }
 
 .close-button:focus {
     background-color: rgba(0, 0, 0, 0);
-    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Red_9Slides.png");
+    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Red_3Slides.png");
     border-width: 0;
     border-color: rgba(0, 0, 0, 0);
     border-top-width: 0;
@@ -290,22 +286,18 @@
 }
 
 .buy-button {
-    width: 100%;
-    height: 44px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    font-size: 22px;
+    width: 132px;
+    height: 48px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 21px;
     color: rgb(246, 252, 255);
     -unity-font-style: bold;
     -unity-text-align: middle-center;
     background-color: rgba(0, 0, 0, 0);
-    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Blue_9Slides.png");
+    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Blue_3Slides.png");
     -unity-background-scale-mode: stretch-to-fill;
     -unity-background-image-tint-color: rgb(255, 255, 255);
-    -unity-slice-left: 16;
-    -unity-slice-right: 16;
-    -unity-slice-top: 16;
-    -unity-slice-bottom: 16;
     border-width: 0;
     border-color: rgba(0, 0, 0, 0);
     border-top-width: 0;
@@ -322,14 +314,14 @@
 
 .buy-button:hover {
     background-color: rgba(0, 0, 0, 0);
-    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Hover_9Slides.png");
+    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Hover_3Slides.png");
     -unity-background-image-tint-color: rgb(255, 255, 255);
     color: rgb(246, 252, 255);
 }
 
 .buy-button:focus {
     background-color: rgba(0, 0, 0, 0);
-    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Blue_9Slides.png");
+    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Blue_3Slides.png");
     border-width: 0;
     border-color: rgba(0, 0, 0, 0);
     border-top-width: 0;
@@ -360,7 +352,7 @@
 
 .buy-button:active {
     background-color: rgba(0, 0, 0, 0);
-    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Blue_9Slides_Pressed.png");
+    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Blue_3Slides_Pressed.png");
     -unity-background-image-tint-color: rgb(255, 255, 255);
     color: rgb(246, 252, 255);
 }
@@ -373,7 +365,7 @@
     opacity: 1;
     color: rgb(232, 240, 247);
     background-color: rgba(0, 0, 0, 0);
-    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Disable_9Slides.png");
+    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Disable_3Slides.png");
     -unity-background-image-tint-color: rgb(255, 255, 255);
     -unity-text-outline-color: rgb(63, 67, 76);
     -unity-text-outline-width: 1px;

@@ -617,8 +617,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 74195b8c61865492fb1d0a56e808bec3, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -3989900381785602977, guid: b021e214cd7a34bcea5394dfd75f611f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1103,8 +1103,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cb17f8006e32c48abaaec2c0383c0502, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -6536585185589818279, guid: bffb6412bfa514f8183914e48d5a10bf, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1150,6 +1150,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f701db3a32c394535aaf86615c03a9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
+  primaryButtonSprite: {fileID: -3989900381785602977, guid: b021e214cd7a34bcea5394dfd75f611f, type: 3}
+  primaryButtonPressedSprite: {fileID: 8917181289422686148, guid: b7b747f66101e43aab4f0ea3480d9a55, type: 3}
+  secondaryButtonSprite: {fileID: -6536585185589818279, guid: bffb6412bfa514f8183914e48d5a10bf, type: 3}
+  secondaryButtonPressedSprite: {fileID: -7330277676144776694, guid: 13ebf6789ab9d4c579685301a22ed365, type: 3}
+  buttonHoverSprite: {fileID: -9173437598748476237, guid: 05cae73ed49f34c21adbe7e2dd85627b, type: 3}
+  buttonDisabledSprite: {fileID: 3588922068369331420, guid: 94e2cee9e14c640e5ab7ecdbd6f13c72, type: 3}
 --- !u!4 &2069482582
 Transform:
   m_ObjectHideFlags: 0

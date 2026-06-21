@@ -267,6 +267,18 @@ MonoBehaviour:
   victoryDeathCountText: {fileID: 556697429}
   playtestTimeSpeedX4: 0
   deathCount: 0
+  bossSpawnShakeDuration: 0.45
+  bossSpawnShakeStrength: 0.3
+  damageFlashDuration: 0.72
+  damageFlashAlpha: 0.14
+  menuPanelSprite: {fileID: 3021450989361617561, guid: 725f1cfb48cbc41ef80642b71a0387fa, type: 3}
+  titleBannerSprite: {fileID: -1611135627137491982, guid: cf09d906b16994e9a8b7a8053bee45f0, type: 3}
+  primaryButtonSprite: {fileID: -3989900381785602977, guid: b021e214cd7a34bcea5394dfd75f611f, type: 3}
+  primaryButtonPressedSprite: {fileID: 8917181289422686148, guid: b7b747f66101e43aab4f0ea3480d9a55, type: 3}
+  secondaryButtonSprite: {fileID: -6536585185589818279, guid: bffb6412bfa514f8183914e48d5a10bf, type: 3}
+  secondaryButtonPressedSprite: {fileID: -7330277676144776694, guid: 13ebf6789ab9d4c579685301a22ed365, type: 3}
+  buttonHoverSprite: {fileID: -9173437598748476237, guid: 05cae73ed49f34c21adbe7e2dd85627b, type: 3}
+  buttonDisabledSprite: {fileID: 3588922068369331420, guid: 94e2cee9e14c640e5ab7ecdbd6f13c72, type: 3}
   rankenPrefabs:
   - {fileID: 5601448996782349022, guid: 19add7be2327d4b7d8a9f5ef0e60a722, type: 3}
   - {fileID: 1980421072392352797, guid: 3882d2febb8dd42198f1d53c87a3e2b7, type: 3}
@@ -4643,8 +4655,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -3989900381785602977, guid: b021e214cd7a34bcea5394dfd75f611f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5544,8 +5556,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -3989900381785602977, guid: b021e214cd7a34bcea5394dfd75f611f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6343,14 +6355,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 74195b8c61865492fb1d0a56e808bec3, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -3989900381785602977, guid: b021e214cd7a34bcea5394dfd75f611f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6901,8 +6913,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -3989900381785602977, guid: b021e214cd7a34bcea5394dfd75f611f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8114,8 +8126,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -3989900381785602977, guid: b021e214cd7a34bcea5394dfd75f611f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
