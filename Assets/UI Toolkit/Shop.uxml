@@ -5,7 +5,7 @@
     xmlns:uie="UnityEditor.UIElements"
     xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
 >
-    <ui:Style src="BattleShop.uss" />
+    <ui:Style src="Battleshop.uss" />
 
     <ui:VisualElement name="root" class="root">
 
@@ -13,9 +13,14 @@
 
             <ui:VisualElement name="shop-header" class="shop-header">
                 <ui:VisualElement name="shop-header-left" class="shop-header-side shop-header-left">
-                    <ui:Label name="gold-label" text="Gold: 0" class="gold-label" />
+                    <ui:VisualElement name="gold-counter" class="gold-counter">
+                        <ui:VisualElement name="gold-counter-icon" class="gold-counter-icon" />
+                        <ui:Label name="gold-label" text="Gold: 0" class="gold-label" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:Label name="shop-title" text="BattleShop" class="shop-title" />
+                <ui:VisualElement name="shop-title-banner" class="shop-title-banner">
+                    <ui:Label name="shop-title" text="BattleShop" class="shop-title" />
+                </ui:VisualElement>
                 <ui:VisualElement name="shop-header-right" class="shop-header-side shop-header-right">
                     <ui:Button name="close-shop-button" text="X" class="close-button" />
                 </ui:VisualElement>
@@ -37,43 +42,58 @@
                 <ui:VisualElement name="upgrade-container" class="upgrade-container">
 
                     <ui:VisualElement name="towerhp-card" class="upgrade-card">
-                        <ui:Label text="TowerHP" class="upgrade-name" />
-                        <ui:Label text="More life for the tower" class="upgrade-description" />
                         <ui:VisualElement name="towerhp-icon" class="upgrade-icon" />
-                        <ui:Label name="towerhp-price-label" text="100" class="upgrade-price" />
-                        <ui:Button name="buy-towerhp-button" text="Buy" class="buy-button" />
+                        <ui:Label text="TowerHP" class="upgrade-name" />
+                        <ui:Label text="Mehr Leben fuer den Turm" class="upgrade-description" />
+                        <ui:VisualElement class="price-row">
+                            <ui:VisualElement class="price-coin" />
+                            <ui:Label name="towerhp-price-label" text="100" class="upgrade-price" />
+                        </ui:VisualElement>
+                        <ui:Button name="buy-towerhp-button" text="Kaufen" class="buy-button" />
                     </ui:VisualElement>
 
                     <ui:VisualElement name="hitspeed-card" class="upgrade-card">
-                        <ui:Label text="HitSpeed" class="upgrade-name" />
-                        <ui:Label text="Attack faster" class="upgrade-description" />
                         <ui:VisualElement name="hitspeed-icon" class="upgrade-icon" />
-                        <ui:Label name="hitspeed-price-label" text="100" class="upgrade-price" />
-                        <ui:Button name="buy-hitspeed-button" text="Buy" class="buy-button" />
+                        <ui:Label text="HitSpeed" class="upgrade-name" />
+                        <ui:Label text="Schnellere Angriffe" class="upgrade-description" />
+                        <ui:VisualElement class="price-row">
+                            <ui:VisualElement class="price-coin" />
+                            <ui:Label name="hitspeed-price-label" text="100" class="upgrade-price" />
+                        </ui:VisualElement>
+                        <ui:Button name="buy-hitspeed-button" text="Kaufen" class="buy-button" />
                     </ui:VisualElement>
 
                     <ui:VisualElement name="hitdmg-card" class="upgrade-card">
-                        <ui:Label text="HitDMG" class="upgrade-name" />
-                        <ui:Label text="Stronger hits" class="upgrade-description" />
                         <ui:VisualElement name="hitdmg-icon" class="upgrade-icon" />
-                        <ui:Label name="hitdmg-price-label" text="100" class="upgrade-price" />
-                        <ui:Button name="buy-hitdmg-button" text="Buy" class="buy-button" />
+                        <ui:Label text="HitDMG" class="upgrade-name" />
+                        <ui:Label text="Staerkere Treffer" class="upgrade-description" />
+                        <ui:VisualElement class="price-row">
+                            <ui:VisualElement class="price-coin" />
+                            <ui:Label name="hitdmg-price-label" text="100" class="upgrade-price" />
+                        </ui:VisualElement>
+                        <ui:Button name="buy-hitdmg-button" text="Kaufen" class="buy-button" />
                     </ui:VisualElement>
 
                     <ui:VisualElement name="spikes-card" class="upgrade-card">
-                        <ui:Label name="spikes-name-label" text="Spikes" class="upgrade-name" />
-                        <ui:Label name="spikes-description-label" text="Damage enemies on contact" class="upgrade-description" />
                         <ui:VisualElement name="spikes-icon" class="upgrade-icon" />
-                        <ui:Label name="spikes-price-label" text="100" class="upgrade-price" />
-                        <ui:Button name="buy-spikes-button" text="Buy" class="buy-button" />
+                        <ui:Label name="spikes-name-label" text="Ranken" class="upgrade-name" />
+                        <ui:Label name="spikes-description-label" text="Schaltet die naechste Ranke frei" class="upgrade-description" />
+                        <ui:VisualElement class="price-row">
+                            <ui:VisualElement class="price-coin" />
+                            <ui:Label name="spikes-price-label" text="100" class="upgrade-price" />
+                        </ui:VisualElement>
+                        <ui:Button name="buy-spikes-button" text="Kaufen" class="buy-button" />
                     </ui:VisualElement>
 
                     <ui:VisualElement name="lifesteal-card" class="upgrade-card">
-                        <ui:Label text="Lifesteal" class="upgrade-name" />
-                        <ui:Label text="Heal from your attacks" class="upgrade-description" />
                         <ui:VisualElement name="lifesteal-icon" class="upgrade-icon" />
-                        <ui:Label name="lifesteal-price-label" text="100" class="upgrade-price" />
-                        <ui:Button name="buy-lifesteal-button" text="Buy" class="buy-button" />
+                        <ui:Label text="Lifesteal" class="upgrade-name" />
+                        <ui:Label text="Heilung durch Angriffe" class="upgrade-description" />
+                        <ui:VisualElement class="price-row">
+                            <ui:VisualElement class="price-coin" />
+                            <ui:Label name="lifesteal-price-label" text="100" class="upgrade-price" />
+                        </ui:VisualElement>
+                        <ui:Button name="buy-lifesteal-button" text="Kaufen" class="buy-button" />
                     </ui:VisualElement>
 
                 </ui:VisualElement>

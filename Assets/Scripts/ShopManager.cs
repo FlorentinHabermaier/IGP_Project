@@ -150,7 +150,7 @@ public class ShopManager : MonoBehaviour
         bool canBuyLifesteal = gold >= lifestealCost && !lifestealBought;
 
         SetButtonState(buyLifestealButton, canBuyLifesteal);
-        buyLifestealButton.text = lifestealBought ? "Bought" : "Buy";
+        buyLifestealButton.text = lifestealBought ? "Gekauft" : "Kaufen";
     }
 
     private void SetButtonState(Button button, bool canBuy)
@@ -269,15 +269,7 @@ public class ShopManager : MonoBehaviour
 
         for (int i = 0; i < shopButtons.Length; i++)
         {
-            shopButtons[i].style.borderTopWidth = i == selectedIndex ? 4 : 0;
-            shopButtons[i].style.borderBottomWidth = i == selectedIndex ? 4 : 0;
-            shopButtons[i].style.borderLeftWidth = i == selectedIndex ? 4 : 0;
-            shopButtons[i].style.borderRightWidth = i == selectedIndex ? 4 : 0;
-
-            shopButtons[i].style.borderTopColor = Color.yellow;
-            shopButtons[i].style.borderBottomColor = Color.yellow;
-            shopButtons[i].style.borderLeftColor = Color.yellow;
-            shopButtons[i].style.borderRightColor = Color.yellow;
+            shopButtons[i].EnableInClassList("shop-button-selected", i == selectedIndex);
         }
 
         shopButtons[selectedIndex].Focus();

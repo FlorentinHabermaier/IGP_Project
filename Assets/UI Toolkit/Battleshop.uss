@@ -2,10 +2,9 @@
     flex-grow: 1;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.70);
+    background-color: rgba(11, 12, 16, 0.76);
 }
 
-/* Jersey 10 pixel font */
 .shop-title,
 .shop-subtitle,
 .upgrade-name,
@@ -18,78 +17,166 @@
 }
 
 .shop-panel {
-    width: 72%;
-    height: 72%;
-    max-width: 1200px;
-    max-height: 700px;
-    min-width: 720px;
-    min-height: 420px;
-    background-color: rgb(74, 55, 38);
-    border-width: 4px;
-    border-color: rgb(160, 120, 70);
-    padding-top: 24px;
-    padding-bottom: 24px;
-    padding-left: 28px;
-    padding-right: 28px;
+    width: 76%;
+    height: 76%;
+    max-width: 1220px;
+    max-height: 720px;
+    min-width: 820px;
+    min-height: 460px;
+    padding-top: 20px;
+    padding-bottom: 32px;
+    padding-left: 22px;
+    padding-right: 22px;
     flex-direction: column;
     align-items: center;
+    background-image: url("/Assets/Art/UI Elements/Banners/Carved_9Slides.png");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-slice-left: 32;
+    -unity-slice-right: 32;
+    -unity-slice-top: 32;
+    -unity-slice-bottom: 32;
 }
 
 .shop-header {
     width: 100%;
+    height: 80px;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .shop-header-side {
-    width: 140px;
-    height: 42px;
+    width: 154px;
+    height: 50px;
     flex-shrink: 0;
+    justify-content: center;
 }
 
 .shop-header-left {
+    position: absolute;
+    left: 4px;
+    top: 0;
     align-items: flex-start;
-    justify-content: center;
 }
 
 .shop-header-right {
+    position: absolute;
+    right: 4px;
+    top: 0;
     align-items: flex-end;
+}
+
+.shop-title-banner {
+    width: 380px;
+    height: 82px;
+    align-items: center;
     justify-content: center;
+    background-image: url("/Assets/Art/UI Elements/Banners/Banner_Horizontal.png");
+    -unity-background-scale-mode: stretch-to-fill;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .shop-title {
-    font-size: 60px;
-    flex-grow: 1;
-    unity-text-align: middle-center;
+    font-size: 54px;
+    color: rgb(255, 245, 210);
     -unity-font-style: bold;
-    color: rgb(255, 235, 180);
-    margin-bottom: 8px;
     -unity-text-align: middle-center;
+    margin-bottom: 8px;
+    -unity-text-outline-color: rgb(54, 39, 32);
+    -unity-text-outline-width: 2px;
+}
+
+.gold-counter {
+    width: 128px;
+    height: 50px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.gold-counter-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    margin-right: 5px;
+    background-image: url("/Assets/Art/UI Elements/Icon_03.png");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.gold-label {
+    flex-grow: 1;
+    height: 42px;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    font-size: 24px;
+    color: rgb(255, 226, 83);
+    -unity-text-align: middle-left;
+    -unity-text-outline-color: rgb(55, 39, 28);
+    -unity-text-outline-width: 1px;
 }
 
 .close-button {
-    width: 42px;
-    height: 42px;
-    font-size: 16px;
+    width: 50px;
+    height: 50px;
+    padding-top: 6px;
+    font-size: 24px;
+    color: rgb(255, 232, 222);
     -unity-font-style: bold;
-    color: white;
-    background-color: rgb(150, 65, 65);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    -unity-text-align: middle-center;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Red_9Slides.png");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    -unity-slice-left: 16;
+    -unity-slice-right: 16;
+    -unity-slice-top: 16;
+    -unity-slice-bottom: 16;
+    border-width: 0;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    -unity-text-outline-color: rgb(255, 224, 204);
+    -unity-text-outline-width: 1px;
 }
 
 .close-button:hover {
-    background-color: rgb(180, 80, 80);
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Red_9Slides_Pressed.png");
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    color: rgb(255, 232, 222);
+}
+
+.close-button:focus {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Red_9Slides.png");
+    border-width: 0;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
 }
 
 .shop-subtitle {
-    font-size: 16px;
-    color: rgb(200, 200, 210);
-    margin-bottom: 20px;
+    font-size: 20px;
+    color: rgb(89, 59, 48);
+    -unity-text-align: middle-center;
+    margin-top: 0;
+    margin-bottom: 14px;
 }
 
 .upgrade-scroll {
@@ -102,97 +189,192 @@
 }
 
 .upgrade-container {
+    width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
+    padding-top: 8px;
+    padding-bottom: 12px;
 }
 
 .upgrade-card {
     width: 18%;
-    min-width: 155px;
-    max-width: 195px;
-    height: 240px;
-    margin-left: 10px;
-    margin-right: 10px;
+    min-width: 160px;
+    max-width: 196px;
+    height: 268px;
+    margin-left: 9px;
+    margin-right: 9px;
     margin-top: 10px;
     margin-bottom: 10px;
-    padding-top: 14px;
+    padding-top: 18px;
     padding-bottom: 14px;
-    padding-left: 12px;
-    padding-right: 12px;
-    background-color: rgb(58, 45, 35);
-    border-width: 3px;
-    border-color: rgb(145, 108, 62);
+    padding-left: 16px;
+    padding-right: 16px;
     align-items: center;
     justify-content: space-between;
+    background-image: url("/Assets/Art/UI Elements/RegularPaper.png");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-slice-left: 28;
+    -unity-slice-right: 28;
+    -unity-slice-top: 28;
+    -unity-slice-bottom: 28;
+}
+
+.upgrade-icon {
+    width: 68px;
+    height: 68px;
+    margin-top: 0;
+    margin-bottom: 3px;
+    background-image: url("/Assets/Art/UI Elements/Icons/Regular_01.png");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+#towerhp-icon {
+    background-image: url("/Assets/Art/UI Elements/Icons/Regular_10.png");
+}
+
+#hitspeed-icon {
+    background-image: url("/Assets/Art/UI Elements/Icons/Regular_08.png");
+}
+
+#hitdmg-icon {
+    background-image: url("/Assets/Art/UI Elements/Icons/Regular_01.png");
+}
+
+#spikes-icon {
+    background-image: url("/Assets/Art/UI Elements/Icons/Regular_04.png");
+}
+
+#lifesteal-icon {
+    background-image: url("/Assets/Art/UI Elements/Icons/Regular_02.png");
 }
 
 .upgrade-name {
-    font-size: 30px;
-    /* -unity-font-style: bold; */
-    color: white;
+    min-height: 34px;
+    font-size: 31px;
+    color: rgb(53, 39, 45);
+    -unity-font-style: bold;
     -unity-text-align: middle-center;
 }
 
 .upgrade-description {
-    font-size: 12px;
-    color: rgb(185, 185, 200);
+    min-height: 42px;
+    font-size: 15px;
+    color: rgb(91, 74, 72);
     -unity-text-align: middle-center;
-    margin-top: -4px;
+    white-space: normal;
 }
 
-.upgrade-icon {
-    width: 96px;
-    height: 96px;
-    background-color: rgb(120, 105, 85);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+.price-row {
+    height: 34px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.price-coin {
+    width: 28px;
+    height: 28px;
+    margin-right: 4px;
+    background-image: url("/Assets/Art/UI Elements/Icon_03.png");
+    -unity-background-scale-mode: scale-to-fit;
 }
 
 .upgrade-price {
-    font-size: 24px;
+    min-width: 44px;
+    font-size: 27px;
+    color: rgb(112, 76, 34);
     -unity-font-style: bold;
-    color: rgb(255, 215, 80);
+    -unity-text-align: middle-left;
 }
 
 .buy-button {
-    width: 92%;
-    height: 38px;
-    font-size: 15px;
+    width: 100%;
+    height: 44px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 22px;
+    color: rgb(246, 252, 255);
     -unity-font-style: bold;
-    background-color: rgb(110, 70, 50);
-    color: rgb(255, 240, 180);
-    border-width: 2px;
-    border-color: rgb(210, 170, 100);
+    -unity-text-align: middle-center;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Blue_9Slides.png");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    -unity-slice-left: 16;
+    -unity-slice-right: 16;
+    -unity-slice-top: 16;
+    -unity-slice-bottom: 16;
+    border-width: 0;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    -unity-text-outline-color: rgb(232, 252, 255);
+    -unity-text-outline-width: 1px;
 }
 
 .buy-button:hover {
-    background-color: rgb(140, 90, 60);
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Hover_9Slides.png");
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    color: rgb(246, 252, 255);
 }
 
-.buy-button-disabled {
-    background-color: rgb(170, 60, 60);
-    color: rgb(255, 235, 235);
+.buy-button:focus {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Blue_9Slides.png");
+    border-width: 0;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
 }
 
-.buy-button-disabled:hover {
-    background-color: rgb(170, 60, 60);
+.shop-button-selected {
+    color: rgb(255, 246, 142);
+    -unity-text-outline-color: rgb(75, 51, 25);
+    -unity-text-outline-width: 2px;
+    border-width: 0;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
 }
 
-.gold-label {
-    min-width: 140px;
-    height: 42px;
-    font-size: 22px;
-    color: rgb(255, 215, 80);
-    background-color: rgb(80, 60, 40);
-    border-width: 2px;
-    border-color: rgb(180, 140, 70);
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    -unity-text-align: middle-left;
+.buy-button:active {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Blue_9Slides_Pressed.png");
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    color: rgb(246, 252, 255);
+}
+
+.buy-button-disabled,
+.buy-button-disabled:hover,
+.buy-button:disabled,
+.buy-button.unity-disabled,
+.buy-button-disabled.unity-disabled {
+    opacity: 1;
+    color: rgb(232, 240, 247);
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("/Assets/Art/UI Elements/Buttons 1/Button_Disable_9Slides.png");
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    -unity-text-outline-color: rgb(63, 67, 76);
+    -unity-text-outline-width: 1px;
 }
