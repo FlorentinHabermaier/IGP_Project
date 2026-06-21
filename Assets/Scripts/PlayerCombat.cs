@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class PlayerCombat : MonoBehaviour
 
     private readonly List<Enemy> enemiesInRange = new();
     private float attackTimer;
+    private bool isAttackInProgress;
 
     private void Awake()
     {
@@ -31,26 +33,48 @@ public class PlayerCombat : MonoBehaviour
             return;
         }
 
-        float attackInterval = GetAttackInterval();
-        attackTimer += Time.deltaTime;
+        attackTimer -= Time.deltaTime;
 
-        while (attackTimer >= attackInterval)
+        if (!isAttackInProgress && attackTimer <= 0f)
         {
-            attackTimer -= attackInterval;
-            PerformAttack();
-            attackInterval = GetAttackInterval();
+            StartAttack();
         }
     }
 
-    private void PerformAttack()
+    private void StartAttack()
     {
-        float damage = Mastermind.instance.getHitDmg();
-        float attackSpeed = Mastermind.instance.getHitSpeed();
+        float attackSpeed = Mathf.Max(0.01f, Mastermind.instance.getHitSpeed());
+        attackTimer = GetAttackInterval();
+        isAttackInProgress = true;
 
+        float attackDelay = 0f;
         if (playerMovement != null)
         {
-            playerMovement.Attack(attackSpeed);
+            attackDelay = playerMovement.Attack(attackSpeed);
         }
+
+        StartCoroutine(DealDamageAfterDelay(attackDelay));
+    }
+
+    private IEnumerator DealDamageAfterDelay(float delay)
+    {
+        if (delay > 0f)
+        {
+            yield return new WaitForSeconds(delay);
+        }
+
+        DealDamageToEnemiesInRange();
+        isAttackInProgress = false;
+    }
+
+    private void DealDamageToEnemiesInRange()
+    {
+        if (Mastermind.instance == null)
+        {
+            return;
+        }
+
+        float damage = Mastermind.instance.getHitDmg();
 
         for (int i = enemiesInRange.Count - 1; i >= 0; i--)
         {
