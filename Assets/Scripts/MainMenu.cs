@@ -7,6 +7,9 @@ public class MainMenu : MonoBehaviour
 {
     private static readonly Vector2 MenuButtonSize = new Vector2(240f, 76f);
 
+    private Button[] menuButtons;
+    private int selectedIndex = 0;
+
     [Header("UI Art")]
     [SerializeField] private Sprite primaryButtonSprite;
     [SerializeField] private Sprite primaryButtonPressedSprite;
@@ -18,6 +21,13 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         StyleButtons();
+        menuButtons = new Button[]
+        {
+            GameObject.Find("Start").GetComponent<Button>(),
+            GameObject.Find("Quit").GetComponent<Button>()
+        };
+
+        UpdateSelection();
     }
 
     // Update is called once per frame
@@ -109,4 +119,42 @@ public class MainMenu : MonoBehaviour
             label.raycastTarget = false;
         }
     }
-}
+
+    public void SelectNext()
+    {
+        selectedIndex++;
+        if (selectedIndex >= menuButtons.Length)
+            selectedIndex = 0;
+
+        UpdateSelection();
+    }
+
+    public void SelectPrevious()
+    {
+        selectedIndex--;
+        if (selectedIndex < 0)
+            selectedIndex = menuButtons.Length - 1;
+
+        UpdateSelection();
+    }
+
+    public void PressSelected()
+    {
+        menuButtons[selectedIndex].onClick.Invoke();
+    }
+
+   private void UpdateSelection()
+    {
+        for (int i = 0; i < menuButtons.Length; i++)
+        {
+            RectTransform rect = menuButtons[i].GetComponent<RectTransform>();
+
+            if (i == selectedIndex)
+                rect.localScale = new Vector3(1.15f, 1.15f, 1f);
+            else
+                rect.localScale = Vector3.one;
+        }
+
+        menuButtons[selectedIndex].Select();
+    }
+    }

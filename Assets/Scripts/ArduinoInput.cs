@@ -15,10 +15,15 @@ public class ArduinoInput : MonoBehaviour
     private float lastShopMoveTime = 0f;
     private float shopMoveCooldown = 0.25f;
 
+    private MainMenu mainMenu;
+    private float lastMenuMoveTime = 0f;
+    private float menuMoveCooldown = 0.25f;
+
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
         shopManager = FindFirstObjectByType<ShopManager>();
+        mainMenu = FindFirstObjectByType<MainMenu>();;
 
         serialPort = new SerialPort(portName, baudRate);
         serialPort.ReadTimeout = 50;
@@ -41,6 +46,40 @@ public class ArduinoInput : MonoBehaviour
         try
         {
             string input = serialPort.ReadLine().Trim();
+
+            if (mainMenu != null)
+            {
+                if (input == "BTN")
+                {
+                    if (!buttonWasPressed)
+                    {
+                        buttonWasPressed = true;
+                        mainMenu.PressSelected();
+                    }
+
+                    return;
+                }
+                else
+                {
+                    buttonWasPressed = false;
+                }
+
+                if (Time.unscaledTime - lastMenuMoveTime > menuMoveCooldown)
+                {
+                    if (input == "DOWN")
+                    {
+                        mainMenu.SelectNext();
+                        lastMenuMoveTime = Time.unscaledTime;
+                    }
+                    else if (input == "UP")
+                    {
+                        mainMenu.SelectPrevious();
+                        lastMenuMoveTime = Time.unscaledTime;
+                    }
+                }
+
+                return;
+            }
 
             if (input == "BTN")
             {
