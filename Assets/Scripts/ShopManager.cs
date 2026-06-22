@@ -229,7 +229,7 @@ public class ShopManager : MonoBehaviour
         return root.style.display != DisplayStyle.None;
     }
 
-    public void SelectNext()
+        public void SelectNext()
     {
         selectedIndex++;
         if (selectedIndex >= shopButtons.Length)
