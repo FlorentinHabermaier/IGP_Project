@@ -29,13 +29,6 @@ The project can be played with standard Unity controls and optionally supports a
 3. Let Unity restore packages, then open a game scene from `Assets/Scenes`.
 4. Press Play to run with the default Unity controls.
 
-### Optional Arduino Controller
-
-The Arduino controller is optional. Its source is located at `Arduino/Arduino.ino`.
-
-1. Upload the sketch to a compatible Arduino board.
-2. Connect the joystick and LEDs as defined in the sketch.
-3. Update the configured serial port in Unity if necessary. The included scenes currently use `COM3`; macOS and Linux typically require a `/dev/cu.*` or `/dev/tty*` device path.
 
 ## Project Structure
 
