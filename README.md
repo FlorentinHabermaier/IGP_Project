@@ -12,14 +12,6 @@ The project can be played with standard Unity controls and optionally supports a
 - Face timed boss encounters that unlock additional enemy types.
 - Defeat the final boss to win the run.
 
-## My Contribution
-
-This was a team project. My main responsibilities were:
-
-- Team lead and project coordination.
-- Core game-loop implementation.
-- UI design and implementation with Unity UI Toolkit.
-- Shop flow and gameplay-facing interface work.
 
 ## Tech Stack
 
